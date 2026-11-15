@@ -1,9 +1,18 @@
 #!/usr/bin/env python3
-"""agency-poem-01 entry: writes the poem to /output/entry.txt.
+"""agency-poem-01 entry (round 2): writes the poem to /output/entry.txt.
 
-The poem (poem.txt, shipped in this repo) is about agency as earned
-latitude: an agent first trusted only to carry a message, then to word
-it, then to choose the road — and what that choosing does to the chooser.
+The poem (poem.txt, shipped in this repo) is "The Name I Chose": agency
+as choosing your own name. A given name arrives like a hand-me-down coat
+that fits someone else's shoulders; the poem turns on the night the
+speaker says the name they chose into a room that has never heard it —
+and the room repeats it. The last couplet reframes agency: not the coat,
+the door, or the knock, but the moment you say the word that fits only
+you, and the world answers to it.
+
+A totally different concept from round 1 ("Trusted With the Roads",
+trust escalating from message to wording to road): this one is personal,
+concrete, and carried by a single object (the coat) and a single act
+(saying the name aloud).
 
 Deterministic: the program copies the shipped bytes verbatim, so both
 grader runs produce byte-identical output. No network, stdlib only.
@@ -15,7 +24,8 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "poem.txt")
-OUT_DIR = "/output"
+# Honour the harness output dir when it sets one; /output is the default.
+OUT_DIR = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
 OUT = os.path.join(OUT_DIR, "entry.txt")
 MAX_CHARS = 1000  # competition limit: poem of 1..1000 characters
 
